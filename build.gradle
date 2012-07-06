@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    ['SF', 'DSA', 'RSA'].each { exclude "META-INF/*.$it" }
+}
+
+manifest.mainAttributes('Main-Class': 'extract_gerrit_keypair.Main')
+
+repositories { mavenCentral() }
+dependencies { compile 'bouncycastle:bcprov-jdk16:140' }
