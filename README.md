@@ -1,6 +1,19 @@
 extract_gerrit_keypair
 ======================
 
-Give it a gerrit `ssh_host_key` and get the public and private keys back.
+Extracts the public and private host keys from a Gerrit setup.
 
-The public key can be turned into the classical SSH format with `ssh-keygen -im PKCS8`.
+The public key can in turn be converted to the classical SSH format with `ssh-keygen -im PKCS8`.
+
+Instructions
+------------
+
+    # wget https://github.com/downloads/pcarrier/extract_gerrit_keypair/extract_gerrit_keypair_v0.1.jar
+    # java -jar extract_gerrit_keypair_v0.1.jar /path/to/gerrit/etc/ssh_host_key
+    -----BEGIN RSA PRIVATE KEY-----
+    [...]
+    -----END RSA PRIVATE KEY-----
+
+    -----BEGIN PUBLIC KEY-----
+    [...]
+    -----END PUBLIC KEY-----
